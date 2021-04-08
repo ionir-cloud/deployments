@@ -1,0 +1,15 @@
+apiVersion: sriovnetwork.openshift.io/v1
+kind: SriovNetworkNodePolicy
+metadata:
+  name: mlx-dpdk-node-policy
+  namespace: openshift-sriov-network-operator
+spec:
+  resourceName: mlxnics
+  nodeSelector:
+    node-role.kubernetes.io/worker: ""
+  mtu: 9000
+  numVfs: 2
+  nicSelector:
+    vendor: "15b3"
+    deviceID: "1017"
+
